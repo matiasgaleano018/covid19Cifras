@@ -1,0 +1,16 @@
+{
+  "name": "proyectoCovidCifras",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^5.0.0-beta3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "purgecss --css sass/styles.css --content index.html -o css/reducido.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,28 @@
+.navbar {
+  background: #4249E3;
+}
+
+i {
+  font-size: 140%;
+}
+
+.btn_buscar {
+  border: 1px solid #060B85;
+  color: #060B85;
+}
+
+.btn_buscar:hover {
+  background: #060B85;
+  color: #fff;
+}
+
+.clouseLoader {
+  display: none !important;
+}
+
+@media only screen and (max-width: 576px) {
+  .btn-group {
+    overflow-x: scroll;
+  }
+}
+/*# sourceMappingURL=index.css.map */

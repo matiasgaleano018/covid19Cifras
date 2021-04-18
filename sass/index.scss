@@ -1,0 +1,24 @@
+$body_bg: #4249E3;
+$card_bg: #060B85;
+.navbar{
+    background: $body_bg;
+}
+i{
+    font-size: 140%;
+}
+.btn_buscar{
+    border: 1px solid $card_bg;
+    color: $card_bg;
+}
+.btn_buscar:hover{
+    background: $card_bg;
+    color: #fff;
+}
+.clouseLoader{
+    display: none !important;
+}
+@media only screen and (max-width:576px){
+    .btn-group{
+        overflow-x: scroll;
+    }
+}
