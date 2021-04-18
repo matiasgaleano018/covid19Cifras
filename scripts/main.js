@@ -28,9 +28,9 @@ async function showData(mostrar){
                 <div class="card text-white bg-primary mb-3 w-100 p-2">
                     <div class="card-header"><h5>${DatosKey[i]}</h5></div>
                         <div class="card-body">
-                            <p class="card-text">Confirmados: ${DatosValues[i].All.confirmed}</p>
-                            <p class="card-text">Muertes: ${DatosValues[i].All.deaths}</p>
-                            <p class="card-text">Población: ${DatosValues[i].All.population}</p>
+                            <p class="card-text">Confirmados: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.confirmed)}</p>
+                            <p class="card-text">Muertes: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.deaths)}</p>
+                            <p class="card-text">Población: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.population)}</p>
                         </div>
                     </div>
                 </div>
@@ -50,9 +50,9 @@ async function showData(mostrar){
                 <div class="card text-white bg-primary mb-3 w-100 p-2">
                     <div class="card-header"><h5>${DatosKey[i]}</h5></div>
                         <div class="card-body">
-                            <p class="card-text">Confirmados: ${DatosValues[i].All.confirmed}</p>
-                            <p class="card-text">Muertes: ${DatosValues[i].All.deaths}</p>
-                            <p class="card-text">Población: ${DatosValues[i].All.population}</p>
+                            <p class="card-text">Confirmados: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.confirmed)}</p>
+                            <p class="card-text">Muertes: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.deaths)}</p>
+                            <p class="card-text">Población: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.population)}</p>
                         </div>
                     </div>
                 </div>
@@ -70,9 +70,9 @@ async function showData(mostrar){
                 <div class="card text-white bg-primary mb-3 w-100 p-2">
                     <div class="card-header"><h5>${DatosKey[i]}</h5></div>
                         <div class="card-body">
-                            <p class="card-text">Confirmados: ${DatosValues[i].All.confirmed}</p>
-                            <p class="card-text">Muertes: ${DatosValues[i].All.deaths}</p>
-                            <p class="card-text">Población: ${DatosValues[i].All.population}</p>
+                            <p class="card-text">Confirmados: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.confirmed)}</p>
+                            <p class="card-text">Muertes: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.deaths)}</p>
+                            <p class="card-text">Población: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.population)}</p>
                         </div>
                     </div>
                 </div>
@@ -90,9 +90,9 @@ async function showData(mostrar){
                 <div class="card text-white bg-primary mb-3 w-100 p-2">
                     <div class="card-header"><h5>${DatosKey[i]}</h5></div>
                         <div class="card-body">
-                            <p class="card-text">Confirmados: ${DatosValues[i].All.confirmed}</p>
-                            <p class="card-text">Muertes: ${DatosValues[i].All.deaths}</p>
-                            <p class="card-text">Población: ${DatosValues[i].All.population}</p>
+                            <p class="card-text">Confirmados: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.confirmed)}</p>
+                            <p class="card-text">Muertes: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.deaths)}</p>
+                            <p class="card-text">Población: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.population)}</p>
                         </div>
                     </div>
                 </div>
@@ -109,9 +109,9 @@ async function showData(mostrar){
                 <div class="card text-white bg-primary mb-3 w-100 p-2">
                     <div class="card-header"><h5>${DatosKey[i]}</h5></div>
                         <div class="card-body">
-                            <p class="card-text">Confirmados: ${DatosValues[i].All.confirmed}</p>
-                            <p class="card-text">Muertes: ${DatosValues[i].All.deaths}</p>
-                            <p class="card-text">Población: ${DatosValues[i].All.population}</p>
+                            <p class="card-text">Confirmados: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.confirmed)}</p>
+                            <p class="card-text">Muertes: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.deaths)}</p>
+                            <p class="card-text">Población: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.population)}</p>
                         </div>
                     </div>
                 </div>
@@ -128,9 +128,9 @@ async function showData(mostrar){
                 <div class="card text-white bg-primary mb-3 w-100 p-2">
                     <div class="card-header"><h5>${DatosKey[i]}</h5></div>
                         <div class="card-body">
-                            <p class="card-text">Confirmados: ${DatosValues[i].All.confirmed}</p>
-                            <p class="card-text">Muertes: ${DatosValues[i].All.deaths}</p>
-                            <p class="card-text">Población: ${DatosValues[i].All.population}</p>
+                            <p class="card-text">Confirmados: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.confirmed)}</p>
+                            <p class="card-text">Muertes: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.deaths)}</p>
+                            <p class="card-text">Población: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.population)}</p>
                         </div>
                     </div>
                 </div>
@@ -146,9 +146,9 @@ async function showData(mostrar){
                     <div class="card text-white bg-primary mb-3 w-100 p-2">
                         <div class="card-header"><h5>${DatosKey[i]}</h5></div>
                             <div class="card-body">
-                                <p class="card-text">Confirmados: ${DatosValues[i].All.confirmed}</p>
-                                <p class="card-text">Muertes: ${DatosValues[i].All.deaths}</p>
-                                <p class="card-text">Población: ${DatosValues[i].All.population}</p>
+                                <p class="card-text">Confirmados: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.confirmed)}</p>
+                                <p class="card-text">Muertes: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.deaths)}</p>
+                                <p class="card-text">Población: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.population)}</p>
                             </div>
                         </div>
                     </div>
@@ -165,9 +165,9 @@ async function showData(mostrar){
                     <div class="card text-white bg-primary mb-3 w-100 p-2">
                         <div class="card-header"><h5>${DatosKey[i]}</h5></div>
                             <div class="card-body">
-                                <p class="card-text">Confirmados: ${DatosValues[i].All.confirmed}</p>
+                                <p class="card-text">Confirmados: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.confirmed)}</p>
                                 <p class="card-text">Muertes: ${DatosValues[i].All.deaths}</p>
-                                <p class="card-text">Población: ${DatosValues[i].All.population}</p>
+                                <p class="card-text">Población: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.population)}</p>
                             </div>
                         </div>
                     </div>
