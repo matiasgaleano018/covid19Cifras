@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid-19 Mundo</title>
+    <script src="https://kit.fontawesome.com/65c05c0a98.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/reducido.css">
+    <link rel="stylesheet" href="./sass/index.css">
+</head>
+<body>
+    <nav class="navbar navbar-light">
+        <div class="container-fluid">
+          <a class="navbar-brand d-flex justify-content-center w-100 text-white" href="#">
+            <i class="fas fa-virus px-2"></i>
+            Covid-19 en el Mundo
+          </a>
+        </div>
+    </nav>
+    <section class="warning px-4">
+        <p>Para mas información, consulte a la pagina oficial de la <a href="https://www.who.int/es" target="_blank">Organización Mundial de la Salud</a> o al pagina del Ministerio de Salud de tu país.</p>
+    </section>
+    <div class="search_zon d-flex w-100 justify-content-center">
+      <div class="container-fluid">
+        <form class="d-flex" id="search_form">
+          <input class="form-control me-2 mx-2" type="search" placeholder="Buscar país..." aria-label="Search" id="input_search">
+          <button class="btn btn_buscar" type="submit" id="submit_search">Buscar</button>
+        </form>
+        <!--Área de filtrado de datos por continentes-->
+      </div>
+    </div>
+    <div class="filter d-flex justify-content-center w-100">
+        <div class="btn-group m-4 mx-100 max-w" role="group" aria-label="Basic outlined example">
+            <button type="button" id="button_todo" class="btn btn-outline-primary active">Todo</button>
+            <button type="button" id="button_global" class="btn btn-outline-primary">Global</button>
+            <button type="button" id="button_america" class="btn btn-outline-primary">América</button>
+            <button type="button" id="button_africa" class="btn btn-outline-primary">Africa</button>
+            <button type="button" id="button_europa" class="btn btn-outline-primary">Europa</button>
+            <button type="button" id="button_oceania" class="btn btn-outline-primary">Oceania</button>
+            <button type="button" id="button_asia" class="btn btn-outline-primary">Asía</button>
+        </div>
+    </div>
+    <!-- Example single danger button -->
+    <div class="d-flex justify-content-center" id="loader_zone">
+      <button class="btn btn-primary" type="button" disabled>
+        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+        Cargando datos...
+      </button>
+    </div>
+    <noscript>Es fundamental para el funcionamiento de la página que active JavaScript</noscript>
+    <div class="container mt-4">
+        <div class="row" id="row_cards">
+          
+        </div>
+    </div>
+    <footer class="footer p-2">
+      <h3>Powered by <a href="https://matias-galeano.netlify.app/" class="link-secondary" target="_blank">Matias Galeano</a></h3>
+      <div class="contact">
+        <h6 class="fs-3">Contact</h6>
+        <a href="" class="link-secondary d-block fs-4" target="_blank"><i class="fab fa-github-square m-3"></i>Código del proyecto</a>
+        <a href="https://www.instagram.com/matigaleano018/" class="link-secondary d-block fs-4" target="_blank"><i class="fab fa-instagram m-3"></i>@matigaleano018</a>
+        <a href="https://github.com/M-Media-Group/Covid-19-API" class="link-secondary d-block m-3 fs-4" target="_blank"><i class="fas fa-link"></i>API utilizada</a>
+      </div>
+    </footer>
+    <script src="./scripts/main.js"></script>
+</body>
+</html>
