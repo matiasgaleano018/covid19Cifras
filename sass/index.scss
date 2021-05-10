@@ -1,5 +1,17 @@
 $body_bg: #4249E3;
 $card_bg: #060B85;
+.title{
+    color: #fff;
+    text-align: center;
+    width: 100%;
+}
+.warning{
+    color: #fff;
+    background: #2761FF;
+    .link-oms{
+        color: #F3F3F3;
+    }
+}
 .navbar{
     background: $body_bg;
 }
@@ -17,8 +29,25 @@ i{
 .clouseLoader{
     display: none !important;
 }
+.error{
+    margin: 3% 0;
+}
+.error-ocultar{
+    display: none !important;
+}
+.img-error{
+    width: 25%;
+}
+.error-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 @media only screen and (max-width:576px){
     .btn-group{
         overflow-x: scroll;
+    }
+    .warning{
+        font-size: 80%;
     }
 }

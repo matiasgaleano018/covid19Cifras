@@ -10,245 +10,204 @@ const loader_zone = document.getElementById('loader_zone');
 const input_search = document.getElementById('input_search');
 const submit_search = document.getElementById('submit_search');
 const search_form = document.getElementById('search_form')
-
+const error_busqueda = document.getElementById("error");
 async function getData(){
     return fetch('https://covid-api.mmediagroup.fr/v1/cases')
         .then(response => response.json())
 }
-
+class CovidData {
+    constructor(key, casosConfirmados, muertes, poblacion){
+        this.key = key;
+        this.casosConfirmados = casosConfirmados;
+        this.muertes = muertes;
+        this.poblacion = poblacion;
+    }
+    paintData(){
+        row_cards.innerHTML += `
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" id="card">
+                <div class="card text-white bg-primary mb-3 w-100 p-2">
+                    <div class="card-header"><h5>${this.key}</h5></div>
+                        <div class="card-body">
+                            <p class="card-text">Confirmados: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(this.casosConfirmados)}</p>
+                            <p class="card-text">Muertes: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(this.muertes)}</p>
+                            <p class="card-text">Población: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(this.poblacion)}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `
+    }
+}
 async function showData(mostrar){
+    row_cards.innerHTML = ``;
     const Datos = await getData();
     const DatosKey = Object.keys(Datos);
     const DatosValues = Object.values(Datos);
-    if(mostrar == 'todo'){
-        row_cards.innerHTML = ``;
-        for(let i = 0; i <= DatosKey.length - 1; i++){
-            row_cards.innerHTML += `
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" id="card">
-                <div class="card text-white bg-primary mb-3 w-100 p-2">
-                    <div class="card-header"><h5>${DatosKey[i]}</h5></div>
-                        <div class="card-body">
-                            <p class="card-text">Confirmados: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.confirmed)}</p>
-                            <p class="card-text">Muertes: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.deaths)}</p>
-                            <p class="card-text">Población: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.population)}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            `
-        }
-        if(row_cards.childElementCount > 1){
-            clouseLoader();
-        }
-    }else if(mostrar == "america"){
-        row_cards.innerHTML = ``;
-        for(let i = 0; i <= DatosKey.length - 1; i++){
-            const continent = DatosValues[i].All.continent;
-            if(continent == "South America" || continent == "North America")
-            row_cards.innerHTML += `
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" id="card">
-                <div class="card text-white bg-primary mb-3 w-100 p-2">
-                    <div class="card-header"><h5>${DatosKey[i]}</h5></div>
-                        <div class="card-body">
-                            <p class="card-text">Confirmados: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.confirmed)}</p>
-                            <p class="card-text">Muertes: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.deaths)}</p>
-                            <p class="card-text">Población: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.population)}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            `
-        }
-    }
-    else if(mostrar == "asia"){
-        row_cards.innerHTML = ``;
-        for(let i = 0; i <= DatosKey.length - 1; i++){
-            const continent = DatosValues[i].All.continent;
-            if(continent == "Asia")
-            row_cards.innerHTML += `
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" id="card">
-                <div class="card text-white bg-primary mb-3 w-100 p-2">
-                    <div class="card-header"><h5>${DatosKey[i]}</h5></div>
-                        <div class="card-body">
-                            <p class="card-text">Confirmados: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.confirmed)}</p>
-                            <p class="card-text">Muertes: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.deaths)}</p>
-                            <p class="card-text">Población: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.population)}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            `
-        }
-    }
-    else if(mostrar == "africa"){
-        row_cards.innerHTML = ``;
-        for(let i = 0; i <= DatosKey.length - 1; i++){
-            const continent = DatosValues[i].All.continent;
-            if(continent == "Africa")
-            row_cards.innerHTML += `
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" id="card">
-                <div class="card text-white bg-primary mb-3 w-100 p-2">
-                    <div class="card-header"><h5>${DatosKey[i]}</h5></div>
-                        <div class="card-body">
-                            <p class="card-text">Confirmados: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.confirmed)}</p>
-                            <p class="card-text">Muertes: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.deaths)}</p>
-                            <p class="card-text">Población: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.population)}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            `
-        }
-    }else if(mostrar == "europa"){
-        row_cards.innerHTML = ``;
-        for(let i = 0; i <= DatosKey.length - 1; i++){
-            const continent = DatosValues[i].All.continent;
-            if(continent == "Europe")
-            row_cards.innerHTML += `
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" id="card">
-                <div class="card text-white bg-primary mb-3 w-100 p-2">
-                    <div class="card-header"><h5>${DatosKey[i]}</h5></div>
-                        <div class="card-body">
-                            <p class="card-text">Confirmados: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.confirmed)}</p>
-                            <p class="card-text">Muertes: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.deaths)}</p>
-                            <p class="card-text">Población: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.population)}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            `
-        }
-    }else if(mostrar == "oceania"){
-        row_cards.innerHTML = ``;
-        for(let i = 0; i <= DatosKey.length - 1; i++){
-            const continent = DatosValues[i].All.continent;
-            if(continent == "Oceania")
-            row_cards.innerHTML += `
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" id="card">
-                <div class="card text-white bg-primary mb-3 w-100 p-2">
-                    <div class="card-header"><h5>${DatosKey[i]}</h5></div>
-                        <div class="card-body">
-                            <p class="card-text">Confirmados: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.confirmed)}</p>
-                            <p class="card-text">Muertes: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.deaths)}</p>
-                            <p class="card-text">Población: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.population)}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            `
+    if(mostrar == "todo"){
+        for(let i = 0; i < DatosKey.length; i++){
+            let valor = new CovidData(DatosKey[i], DatosValues[i].All.confirmed, DatosValues[i].All.deaths, DatosValues[i].All.population)
+            valor.paintData();
         }
     }else if(mostrar == "global"){
-        row_cards.innerHTML = ``;
-        for(let i = 0; i <= DatosKey.length - 1; i++){
+        for(let i = 0; i < DatosKey.length; i++){
             if(DatosKey[i] == "Global"){
-                row_cards.innerHTML += `
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" id="card">
-                    <div class="card text-white bg-primary mb-3 w-100 p-2">
-                        <div class="card-header"><h5>${DatosKey[i]}</h5></div>
-                            <div class="card-body">
-                                <p class="card-text">Confirmados: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.confirmed)}</p>
-                                <p class="card-text">Muertes: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.deaths)}</p>
-                                <p class="card-text">Población: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.population)}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                `
+                let valor = new CovidData(DatosKey[i], DatosValues[i].All.confirmed, DatosValues[i].All.deaths, DatosValues[i].All.population)
+                valor.paintData();
+            }
+        }
+    }else if(mostrar == "america"){
+        for(let i = 0; i < DatosKey.length; i++){
+            const continente = DatosValues[i].All.continent;
+            if(continente == "South America" || continente == "North America"){
+                let valor = new CovidData(DatosKey[i], DatosValues[i].All.confirmed, DatosValues[i].All.deaths, DatosValues[i].All.population)
+                valor.paintData();
+            }
+        }
+    }else if(mostrar == "africa"){
+        for(let i = 0; i < DatosKey.length; i++){
+            const continente = DatosValues[i].All.continent;
+            if(continente == "Africa"){
+                let valor = new CovidData(DatosKey[i], DatosValues[i].All.confirmed, DatosValues[i].All.deaths, DatosValues[i].All.population)
+                valor.paintData();
+            }
+        }
+    }else if(mostrar == "europa"){
+        for(let i = 0; i < DatosKey.length; i++){
+            const continente = DatosValues[i].All.continent;
+            if(continente == "Europe"){
+                let valor = new CovidData(DatosKey[i], DatosValues[i].All.confirmed, DatosValues[i].All.deaths, DatosValues[i].All.population)
+                valor.paintData();
+            }
+        }
+    }else if(mostrar == "oceania"){
+        for(let i = 0; i < DatosKey.length; i++){
+            const continente = DatosValues[i].All.continent;
+            if(continente == "Oceania"){
+                let valor = new CovidData(DatosKey[i], DatosValues[i].All.confirmed, DatosValues[i].All.deaths, DatosValues[i].All.population)
+                valor.paintData();
+            }
+        }
+    }else if(mostrar == "asia"){
+        for(let i = 0; i < DatosKey.length; i++){
+            const continente = DatosValues[i].All.continent;
+            if(continente == "Asia"){
+                let valor = new CovidData(DatosKey[i], DatosValues[i].All.confirmed, DatosValues[i].All.deaths, DatosValues[i].All.population)
+                valor.paintData();
             }
         }
     }else{
-        row_cards.innerHTML = ``;
-        for(let i = 0; i <= DatosKey.length - 1; i++){
-            if(DatosKey[i].toLowerCase() == mostrar.toLowerCase()){
-                row_cards.innerHTML += `
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" id="card">
-                    <div class="card text-white bg-primary mb-3 w-100 p-2">
-                        <div class="card-header"><h5>${DatosKey[i]}</h5></div>
-                            <div class="card-body">
-                                <p class="card-text">Confirmados: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.confirmed)}</p>
-                                <p class="card-text">Muertes: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.deaths)}</p>
-                                <p class="card-text">Población: ${new Intl.NumberFormat('es-PY', { style: "decimal" }).format(DatosValues[i].All.population)}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                `
+        for(let i = 0; i < DatosKey.length; i++){
+            if(DatosKey[i].toLocaleLowerCase() == mostrar.toLowerCase()){
+                let valor = new CovidData(DatosKey[i], DatosValues[i].All.confirmed, DatosValues[i].All.deaths, DatosValues[i].All.population)
+                valor.paintData();
             }
         }
     }
-    
+    if(row_cards.childElementCount < 1){
+        resNull()
+    }else{
+        resNotNull()
+    }
+    clouseLoader();
 }
+
+const putActive = (boton)=>{
+    switch(boton){
+        case "todo":
+            button_america.classList.remove("active");
+            button_asia.classList.remove("active");
+            button_europa.classList.remove("active");
+            button_africa.classList.remove("active");
+            button_global.classList.remove("active");
+            button_oceania.classList.remove("active");
+            button_todo.classList.add("active");
+            break;
+        case "america":
+            button_todo.classList.remove("active");
+            button_asia.classList.remove("active");
+            button_europa.classList.remove("active");
+            button_africa.classList.remove("active");
+            button_global.classList.remove("active");
+            button_oceania.classList.remove("active");
+            button_america.classList.add("active");
+            break;
+        case "global":
+            button_todo.classList.remove("active");
+            button_america.classList.remove("active");
+            button_europa.classList.remove("active");
+            button_asia.classList.remove("active");
+            button_africa.classList.remove("active");
+            button_oceania.classList.remove("active");
+            button_global.classList.add("active");
+            break;
+        case "africa":
+            button_todo.classList.remove("active");
+            button_america.classList.remove("active");
+            button_europa.classList.remove("active");
+            button_asia.classList.remove("active");
+            button_global.classList.remove("active");
+            button_oceania.classList.remove("active");
+            button_africa.classList.add("active");
+            break;
+        case "europa":
+            button_todo.classList.remove("active");
+            button_america.classList.remove("active");
+            button_africa.classList.remove("active");
+            button_asia.classList.remove("active");
+            button_global.classList.remove("active");
+            button_oceania.classList.remove("active");
+            button_europa.classList.add("active");
+            break;
+        case "asia":
+            button_todo.classList.remove("active");
+            button_america.classList.remove("active");
+            button_europa.classList.remove("active");
+            button_africa.classList.remove("active");
+            button_global.classList.remove("active");
+            button_oceania.classList.remove("active");
+            button_asia.classList.add("active");
+            break;
+        case "oceania":
+            button_todo.classList.remove("active");
+            button_america.classList.remove("active");
+            button_europa.classList.remove("active");
+            button_asia.classList.remove("active");
+            button_global.classList.remove("active");
+            button_africa.classList.remove("active");
+            button_oceania.classList.add("active");
+            break;
+    }
+}
+window.addEventListener("load",()=>{
+    showData('todo')
+})
 button_todo.addEventListener("click", ()=>{
     showData('todo');
-    button_america.classList.remove("active");
-    button_asia.classList.remove("active");
-    button_europa.classList.remove("active");
-    button_africa.classList.remove("active");
-    button_global.classList.remove("active");
-    button_oceania.classList.remove("active");
-    button_todo.classList.add("active")
+    putActive('todo')
 })
-button_todo.click()
-
 button_america.addEventListener("click", ()=>{
     showData('america');
-    button_todo.classList.remove("active");
-    button_asia.classList.remove("active");
-    button_europa.classList.remove("active");
-    button_africa.classList.remove("active");
-    button_global.classList.remove("active");
-    button_oceania.classList.remove("active");
-    button_america.classList.add("active")
+    putActive('america')
 })
 button_asia.addEventListener("click", ()=>{
     showData('asia');
-    button_todo.classList.remove("active");
-    button_america.classList.remove("active");
-    button_europa.classList.remove("active");
-    button_africa.classList.remove("active");
-    button_global.classList.remove("active");
-    button_oceania.classList.remove("active");
-    button_asia.classList.add("active")
+    putActive('asia')
 })
 button_africa.addEventListener("click", ()=>{
     showData('africa');
-    button_todo.classList.remove("active");
-    button_america.classList.remove("active");
-    button_europa.classList.remove("active");
-    button_asia.classList.remove("active");
-    button_global.classList.remove("active");
-    button_oceania.classList.remove("active");
-    button_africa.classList.add("active")
+    putActive('africa')
 })
 button_europa.addEventListener("click", ()=>{
     showData('europa');
-    button_todo.classList.remove("active");
-    button_america.classList.remove("active");
-    button_africa.classList.remove("active");
-    button_asia.classList.remove("active");
-    button_global.classList.remove("active");
-    button_oceania.classList.remove("active");
-    button_europa.classList.add("active")
+    putActive('europa')
 })
 button_oceania.addEventListener("click", ()=>{
     showData('oceania');
-    button_todo.classList.remove("active");
-    button_america.classList.remove("active");
-    button_europa.classList.remove("active");
-    button_asia.classList.remove("active");
-    button_global.classList.remove("active");
-    button_africa.classList.remove("active");
-    button_oceania.classList.add("active")
+    putActive('oceania')
 })
 button_global.addEventListener("click", ()=>{
     showData('global');
-    button_todo.classList.remove("active");
-    button_america.classList.remove("active");
-    button_europa.classList.remove("active");
-    button_asia.classList.remove("active");
-    button_africa.classList.remove("active");
-    button_oceania.classList.remove("active");
-    button_global.classList.add("active")
+    putActive('global')
 })
 
 function clouseLoader(){
@@ -261,3 +220,10 @@ search_form.addEventListener('submit', (e)=>{
     e.preventDefault();
     showData(e.target[0].value)
 })
+
+const resNull = ()=>{
+    error_busqueda.classList.remove("error-ocultar");
+}
+const resNotNull = ()=>{
+    error_busqueda.classList.add("error-ocultar")
+}

@@ -10,17 +10,16 @@
     <link rel="stylesheet" href="./sass/index.css">
 </head>
 <body>
-    <img src="./img/img1.jpg" alt="" class="clouseLoader">
     <nav class="navbar navbar-light">
         <div class="container-fluid">
-          <a class="navbar-brand d-flex justify-content-center w-100 text-white" href="#">
+          <h1 class="title">
             <i class="fas fa-virus px-2"></i>
             Covid-19 en el Mundo
-          </a>
+          </h1>
         </div>
     </nav>
     <section class="warning px-4">
-        <p>Para mas información, consulte a la pagina oficial de la <a href="https://www.who.int/es" target="_blank">Organización Mundial de la Salud</a> o a la pagina del Ministerio de Salud de tu país.</p>
+        <p>Para mas información, consulte a la pagina oficial de la <a href="https://www.who.int/es" target="_blank" class="link-oms">Organización Mundial de la Salud</a> o a la pagina del Ministerio de Salud de tu país.</p>
     </section>
     <div class="search_zon d-flex w-100 justify-content-center">
       <div class="container-fluid">
@@ -51,6 +50,12 @@
     </div>
     <noscript>Es fundamental para el funcionamiento de la página que active JavaScript</noscript>
     <div class="container mt-4">
+      <div class="error error-ocultar w-80 m-30 d-flex justify-content-center shadow-sm p-2" id="error">
+        <img src="./img/error.svg" alt="" class="img-error">
+        <div class="error-text">
+          <h3>No se ha encontrado resultados :(</h3>
+        </div>
+      </div>
         <div class="row" id="row_cards">
           
         </div>
